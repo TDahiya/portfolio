@@ -29,27 +29,18 @@
    }
    
    a, button, .btn { cursor: none; }
-   
-   /* --- NEGATIVE CURSOR (Fixed Size) --- */
 
-   
-   .cursor-outline {
-       width: 60px; height: 60px; /* Fixed small size */
-       border: 1px solid rgba(255, 255, 255, 0.5);
-       background-color: white; /* White background needed for difference effect */
-       position: fixed; top: 0; left: 0;
-       transform: translate(-50%, -50%);
-       border-radius: 50%;
-       z-index: 9999;
-       pointer-events: none;
-       
-       /* THE NEGATIVE FILTER EFFECT */
-       mix-blend-mode: difference; 
-       
-       /* Smooth movement delay */
-       transition: left 0.1s ease-out, top 0.1s ease-out, transform 0.2s ease;
+   .cursor-dot {
+      width: 10px; height: 10px;
+      background-color: white;
+      position: fixed; top: 0; left: 0;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 9999;
+      pointer-events: none;
+      mix-blend-mode: difference;
+      transition: left 0.1s ease-out, top 0.1s ease-out, transform 0.2s ease;
    }
-   
    /* HOVER STATE (Subtle reaction, NO ZOOM) */
    .cursor-hover {
        /* Optional: Slight border thickening or opacity change instead of zoom */

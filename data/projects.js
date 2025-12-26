@@ -7,5 +7,15 @@ const PROJECTS = [
         demo: "https://sentimentalanalysis-7u8d.onrender.com/", 
         image: "images/Sentiment_Logo.png" // Leave empty to show the default code icon, or add path to image
     },
+{
+    title: "Health Risk Classifier & Dashboard",
+    description: "ML application classifying user health risk (Gold/Silver/Bronze). Features a Random Forest model (98% accuracy), synthetic data augmentation (SDV), and an interactive Flask dashboard with real-time probability visualization.",
+    technologies: ["Python", "Flask", "Scikit-Learn", "Chart.js", "Pandas","Machine Learning"],
+    github: "https://github.com/TDahiya/healthriskscore",
+    demo: "https://healthriskscore.onrender.com/", // Replace with your actual Render URL
+    image: "https://github.com/TDahiya/healthriskscore/blob/main/healthriskscore.png?raw=true" // Take a screenshot of your new UI!
+}
 
 ];
+
+https://healthriskscore.onrender.com/

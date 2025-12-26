@@ -69,23 +69,36 @@ function loadProfile() {
     document.getElementById('footer-socials').innerHTML = socialHTML;
 }
 
+// ============================================================
+// 🔍 OPTIMIZED PROJECT RENDERER (With Show More Logic)
+// ============================================================
+
 function loadProjects() {
     const container = document.getElementById('projects-grid');
     if (!container || typeof PROJECTS === 'undefined') return;
 
-    container.innerHTML = PROJECTS.map(p => {
+    // Clear existing content
+    container.innerHTML = '';
+
+    // 1. Render ALL cards, but hide those after index 2 (first 3 visible)
+    PROJECTS.forEach((p, index) => {
+        // Handle images
         const visualContent = p.image 
             ? `<img src="${p.image}" alt="${p.title}">`
             : `<div class="project-icon-placeholder"><i class='bx bx-code-alt'></i></div>`;
 
-        // USE THE LOOKUP TABLE
+        // Handle badges
         const badges = p.technologies.map(t => {
             const url = TECH_BADGES[t] || TECH_BADGES[Object.keys(TECH_BADGES).find(k => k.includes(t))] || DEFAULT_BADGE;
             return `<img src="${url}" alt="${t}" class="tech-badge">`;
         }).join('');
 
-        return `
-        <article class="project-card">
+        // Determine if this card should be hidden initially
+        // index 0, 1, 2 = visible. index 3+ = hidden
+        const isHidden = index >= 3 ? 'hidden' : '';
+
+        const cardHTML = `
+        <article class="project-card ${isHidden}" data-index="${index}">
             <div class="project-visual">
                 ${visualContent}
             </div>
@@ -100,7 +113,47 @@ function loadProjects() {
             </div>
         </article>
         `;
-    }).join('');
+        
+        container.insertAdjacentHTML('beforeend', cardHTML);
+    });
+
+    // 2. Logic: If we have more than 3 projects, add the "Show More" button
+    if (PROJECTS.length > 3) {
+        // Create the wrapper for the blur effect
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'show-more-container';
+        buttonContainer.id = 'show-more-wrapper';
+        
+        buttonContainer.innerHTML = `
+            <button class="btn-show-more" id="show-more-btn">
+                View All Projects <i class='bx bx-chevron-down'></i>
+            </button>
+        `;
+
+        // Insert AFTER the grid
+        container.parentNode.insertBefore(buttonContainer, container.nextSibling);
+
+        // Add Click Event
+        document.getElementById('show-more-btn').addEventListener('click', function() {
+            // Find all hidden cards
+            const hiddenCards = document.querySelectorAll('.project-card.hidden');
+            
+            // Reveal them with animation
+            hiddenCards.forEach((card, i) => {
+                card.classList.remove('hidden');
+                card.classList.add('fade-in-up');
+                // Stagger the animation slightly for a cool effect
+                card.style.animationDelay = `${i * 100}ms`; 
+            });
+
+            // Hide the button/blur container with fade effect
+            const wrapper = document.getElementById('show-more-wrapper');
+            wrapper.classList.add('hidden');
+            setTimeout(() => {
+                wrapper.style.display = 'none';
+            }, 500);
+        });
+    }
 }
 
 function loadSkills() {

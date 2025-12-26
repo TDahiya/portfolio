@@ -39,7 +39,6 @@
       z-index: 9999;
       pointer-events: none;
       mix-blend-mode: difference;
-      transition: left 0.1s ease-out, top 0.1s ease-out, transform 0.2s ease;
    }
    /* HOVER STATE (Subtle reaction, NO ZOOM) */
    .cursor-hover {

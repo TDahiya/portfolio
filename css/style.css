@@ -91,8 +91,38 @@
    }
    .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
    
+   .projects-wrapper {
+       width: 100%;
+       position: relative;
+   }
+   
    .grid-centered {
-       display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;
+       display: grid; 
+       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+       justify-items: center;
+       gap: 2.5rem;
+       max-width: 1200px;
+       margin: 0 auto;
+   }
+   
+   /* Ensure grid respects max 3 items in a row on larger screens */
+   @media (min-width: 1280px) {
+       .grid-centered {
+           grid-template-columns: repeat(3, 1fr);
+           max-width: 1200px;
+       }
+   }
+   
+   @media (min-width: 768px) and (max-width: 1279px) {
+       .grid-centered {
+           grid-template-columns: repeat(2, 1fr);
+       }
+   }
+   
+   @media (max-width: 767px) {
+       .grid-centered {
+           grid-template-columns: 1fr;
+       }
    }
    
    /* --- PROJECT CARDS --- */
@@ -103,8 +133,12 @@
        border-radius: var(--radius);
        overflow: hidden;
        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-       width: 360px;
-       display: flex; flex-direction: column;
+       width: 100%;
+       max-width: 360px;
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+       opacity: 1;
    }
    
    .project-card:hover {
@@ -204,4 +238,100 @@
     .cursor-dot {
         display: none !important; /* Hide custom cursor */
     }
+}
+/* ============================================================
+   SHOW MORE / EXPANSION LOGIC WITH BLUR & TRANSPARENCY
+   ============================================================ */
+
+/* Initially hidden projects */
+.project-card.hidden {
+    display: none;
+}
+
+/* Smooth fade-in animation for revealed projects */
+.project-card.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Wrapper container for Show More button with blur effect */
+.show-more-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -60px;
+    padding-top: 120px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 20;
+    
+    /* Gradient blur effect - fades from transparent to dark background */
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(10, 10, 10, 0.3) 30%,
+        rgba(10, 10, 10, 0.7) 60%,
+        var(--bg-dark) 100%
+    );
+    
+    /* Smooth transition when container is hidden */
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.btn-show-more {
+    pointer-events: auto;
+    background: rgba(59, 130, 246, 0.15);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
+    letter-spacing: 0.5px;
+}
+
+.btn-show-more:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+    transform: translateY(-4px);
+    border-color: white;
+}
+
+.btn-show-more i {
+    transition: transform 0.3s ease;
+}
+
+.btn-show-more:hover i {
+    transform: rotate(180deg);
+}
+
+/* Hide container smoothly when expanded */
+#show-more-wrapper {
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#show-more-wrapper.hidden {
+    opacity: 0;
+    visibility: hidden;
 }

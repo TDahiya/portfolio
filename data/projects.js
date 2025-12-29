@@ -23,8 +23,18 @@ const PROJECTS = [
         demo: "https://sentimentalanalysis-7u8d.onrender.com/", 
         image: "images/Sentiment_Logo.png" // Leave empty to show the default code icon, or add path to image
     },
+    {
+        title: "IPL Data Analysis using Apache Spark",
+        description: "Exploratory analysis of IPL match and ball-by-ball data using Apache Spark on Databricks, focusing on distributed querying and performance-aware data processing.",
+        technologies: ["Apache Spark", "Databricks", "PySpark", "Spark SQL", "AWS S3", "Python"],
+        github: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark",
+        demo: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark", 
+        image: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark/blob/main/databricks.png?raw=true"
+    },    
+
 
 ];
+
 
 
 

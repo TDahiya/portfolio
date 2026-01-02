@@ -1,11 +1,19 @@
 const PROJECTS = [
     {
-        title: "Are-We-Alone-Exoplanet-Analysis",
-        description: "The core of this project is a data visualization that maps planetary radius against orbital distance, highlighting a distinct Goldilocks Zone of potential habitability.",
-        technologies: ["Data Visualization"],
-        github: "https://github.com/TDahiya/Are-We-Alone-Exoplanet-Analysis",
-        demo: "https://github.com/TDahiya/Are-We-Alone-Exoplanet-Analysis/blob/main/Report_Group_OF.pdf", // Replace with your actual Render URL
-        image: "https://github.com/TDahiya/Are-We-Alone-Exoplanet-Analysis/raw/main/AreWeAlone.png" // Take a screenshot of your new UI!
+        title: "Netflix-Data-Analysis-dbt-Snowflake",
+        description: "An exploratory analytics engineering project using dbt and Snowflake to transform Netflix data and visualize insights in Power BI. Built to understand core dbt concepts rather than production-grade workflows.",
+        technologies: ["dbt", "Snowflake", "SQL", "Power BI"],
+        github: "https://github.com/TDahiya/netflix_da_dbt",
+        demo: "https://github.com/TDahiya/netflix_da_dbt", 
+        image: "https://github.com/TDahiya/netflix_da_dbt/blob/main/dbt2.png?raw=true"
+    },
+    {
+        title: "IPL Data Analysis using Apache Spark",
+        description: "Exploratory analysis of IPL match and ball-by-ball data using Apache Spark on Databricks, focusing on distributed querying and performance-aware data processing.",
+        technologies: ["Apache Spark", "Databricks", "PySpark", "Spark SQL", "AWS S3", "Python"],
+        github: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark",
+        demo: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark", 
+        image: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark/blob/main/databricks.png?raw=true"
     },
     {
         title: "Health Risk Classifier & Dashboard",
@@ -16,6 +24,14 @@ const PROJECTS = [
         image: "https://github.com/TDahiya/healthriskscore/blob/main/healthriskscore.png?raw=true" // Take a screenshot of your new UI!
     },
     {
+        title: "Are-We-Alone-Exoplanet-Analysis",
+        description: "The core of this project is a data visualization that maps planetary radius against orbital distance, highlighting a distinct Goldilocks Zone of potential habitability.",
+        technologies: ["Data Visualization"],
+        github: "https://github.com/TDahiya/Are-We-Alone-Exoplanet-Analysis",
+        demo: "https://github.com/TDahiya/Are-We-Alone-Exoplanet-Analysis/blob/main/Report_Group_OF.pdf", // Replace with your actual Render URL
+        image: "https://github.com/TDahiya/Are-We-Alone-Exoplanet-Analysis/raw/main/AreWeAlone.png" // Take a screenshot of your new UI!
+    },
+    {
         title: "Sentiment Analysis Engine",
         description: "NLP model achieving 85% accuracy on customer reviews using Python and NLTK.",
         technologies: ["Machine Learning"],
@@ -23,17 +39,11 @@ const PROJECTS = [
         demo: "https://sentimentalanalysis-7u8d.onrender.com/", 
         image: "images/Sentiment_Logo.png" // Leave empty to show the default code icon, or add path to image
     },
-    {
-        title: "IPL Data Analysis using Apache Spark",
-        description: "Exploratory analysis of IPL match and ball-by-ball data using Apache Spark on Databricks, focusing on distributed querying and performance-aware data processing.",
-        technologies: ["Apache Spark", "Databricks", "PySpark", "Spark SQL", "AWS S3", "Python"],
-        github: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark",
-        demo: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark", 
-        image: "https://github.com/TDahiya/ipl-data-analysis-using-pyspark/blob/main/databricks.png?raw=true"
-    },    
-
+    
+    
 
 ];
+
 
 
 

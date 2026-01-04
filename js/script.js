@@ -49,3 +49,19 @@ backToTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    new Typed(".typing", {
+        strings: [
+            "Data Engineer",
+            "Data Scientist",
+            "Data Analyst"
+        ],
+        typeSpeed: 80,
+        backSpeed: 50,
+        backDelay: 1200,
+        loop: true,
+        showCursor: true,
+        cursorChar: "|"
+    });
+});
+

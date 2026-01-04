@@ -52,10 +52,16 @@ backToTopBtn.addEventListener('click', () => {
 document.addEventListener("DOMContentLoaded", function () {
     new Typed(".typing", {
         strings: [
+            "Data Analyst",
             "Data Engineer",
             "Data Scientist",
-            "Data Analyst"
-        ],
+            "Business Intelligence Analyst",
+            "Analytics Engineer",
+            "Business Analyst",
+            "Product Analyst",
+            "Marketing Data Analyst",
+            "Risk Analyst",
+            "Data Governance Analyst"],
         typeSpeed: 80,
         backSpeed: 50,
         backDelay: 1200,
@@ -64,4 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
         cursorChar: "|"
     });
 });
+
 
